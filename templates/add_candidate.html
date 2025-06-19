@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Add Candidate{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card slide-up">
+      <h3 class="text-center mb-4">➕ Add New Candidate</h3>
+      <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="name" class="form-label">Candidate Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Full name" required>
+        </div>
+        <div class="mb-3">
+          <label for="party" class="form-label">Party</label>
+          <input type="text" class="form-control" id="party" name="party" placeholder="Party name" required>
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Candidate Image</label>
+          <input type="file" class="form-control" id="image" name="image" accept="image/*">
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary hover-glow">Add Candidate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

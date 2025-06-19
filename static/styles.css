@@ -1,0 +1,196 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+/* Links */
+a, .text-info, .text-muted, .text-secondary, footer a {
+    color: #66b2ff !important;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #90cdf4 !important;
+    text-decoration: underline;
+}
+
+/* Form Containers */
+.container, .form-container, .card {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+/* Labels */
+label,
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+/* Inputs, Selects, Textareas */
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    font-size: 1em;
+    margin-bottom: 16px;
+}
+
+input[type="file"] {
+    color: #ffffff;
+    background-color: #2a2a2a;
+}
+
+/* Placeholder Text */
+input::placeholder,
+textarea::placeholder {
+    color: #bbbbbb !important;
+}
+
+/* Button Styling */
+button, .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table thead {
+    background-color: #2c2c2c;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #444;
+    text-align: left;
+    color: #ffffff;
+}
+
+table tr:nth-child(even) {
+    background-color: #1b1b1b;
+}
+
+/* Flash messages / alerts */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.alert-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.alert-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.alert-warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+/* Footer */
+footer, footer p {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #cccccc !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container, .form-container, .card {
+        padding: 15px;
+    }
+}
+/* Fix low-opacity text like muted footer links or subtext */
+.text-muted,
+.text-secondary,
+.card p,
+small,
+footer p,
+form p {
+    color: #cccccc !important;
+}
+
+/* Fix heading icon + title inside card */
+.card h3,
+.card h1,
+.card h2 {
+    color: #ffffff !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Fix anchor inside light text area */
+.card a {
+    color: #66ccff !important;
+}
+
+/* Force dark backgrounds to have white text fallback */
+.card,
+.card-body {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}

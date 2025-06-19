@@ -1,0 +1,25 @@
+# templates/vote.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vote</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Cast Your Vote</h2>
+        <form method="POST" class="w-50 mx-auto mt-4">
+            {% for c in candidates %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="candidate" value="{{ c.id }}" required>
+                    <label class="form-check-label">{{ c.name }} ({{ c.party }})</label>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-success mt-4 w-100">Submit Vote</button>
+        </form>
+        <div class="text-center mt-3">
+            <a href="/logout" class="btn btn-outline-danger">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

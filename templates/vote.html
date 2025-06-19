@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Cast Your Vote{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card slide-up">
+      <h3 class="text-center mb-4">🗳️ Cast Your Vote</h3>
+      <form method="POST">
+        {% for c in candidates %}
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="candidate" value="{{ c.id }}" id="candidate{{ c.id }}" required>
+            <label class="form-check-label" for="candidate{{ c.id }}">
+              {{ c.name }} ({{ c.party }})
+            </label>
+          </div>
+        {% endfor %}
+        <div class="d-grid gap-2 mt-4">
+          <button type="submit" class="btn btn-success hover-glow">Submit Vote</button>
+        </div>
+      </form>
+      <div class="text-center mt-3">
+        <a href="/logout" class="btn btn-outline-danger">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

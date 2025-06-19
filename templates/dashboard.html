@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card slide-up mb-4">
+      <h3 class="text-center">🎯 Vote for Your Candidate</h3>
+      {% if not has_voted %}
+      <form method="POST" action="/vote">
+        <div class="mb-3">
+          <label for="candidate" class="form-label">Select Candidate</label>
+          <select class="form-control" id="candidate" name="candidate_id" required>
+            {% for candidate in candidates %}
+              <option value="{{ candidate.id }}">{{ candidate.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary hover-glow">Submit Vote</button>
+        </div>
+      </form>
+      {% else %}
+        <div class="alert alert-success mt-3">
+          ✅ You have already voted. Thank you for participating!
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="card slide-up">
+      <h4 class="mb-3">📜 Your Vote Log</h4>
+      {% if vote_logs %}
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th>Candidate</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for log in vote_logs %}
+          <tr>
+            <td>{{ log.candidate.name }}</td>
+            <td>{{ log.timestamp.strftime("%d %b %Y %I:%M %p") }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p class="text-muted">No voting history found.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

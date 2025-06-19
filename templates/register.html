@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card slide-up">
+      <h3 class="text-center mb-4">📝 Register</h3>
+      <form method="POST" action="/register" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Choose a username" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Choose a password" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="voter_id" class="form-label">Upload Voter ID (Image/PDF)</label>
+          <input type="file" class="form-control" id="voter_id" name="voter_id" accept=".jpg,.jpeg,.png,.pdf" required>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary hover-glow">Register</button>
+        </div>
+
+        <div class="text-center mt-3">
+          <p>Already have an account? <a href="/login" class="text-info">Login here</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

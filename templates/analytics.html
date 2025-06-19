@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Voter Analytics{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card slide-up">
+      <h3 class="text-center mb-4">📊 Voter Analytics</h3>
+      <ul class="list-group">
+        {% for candidate, count in analytics.items() %}
+          <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white">
+            {{ candidate }}
+            <span class="badge bg-primary rounded-pill">{{ count }} votes</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
