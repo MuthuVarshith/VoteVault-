@@ -11,7 +11,7 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, default=False)
     has_voted = db.Column(db.Boolean, default=False)
 
-    # 👇 Add this new line to support file uploads
+    #  Add this new line to support file uploads
     voter_id_path = db.Column(db.String(300), nullable=True)
 
 
