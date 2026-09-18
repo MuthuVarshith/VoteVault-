@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 from datetime import datetime
 import os
 import csv
-from io import StringIO
+from io import BytesIO, StringIO
 
 from models import db, User, Candidate, Vote
 
@@ -174,10 +174,6 @@ def add_candidate():
 # ----------------------------- EXPORT TO CSV -----------------------------
 @app.route('/export_votes')
 def export_votes():
-    if not session.get('is_admin'):
-        flash('Admin access required.', 'danger')
-        return redirect(url_for('login'))
-
     output = StringIO()
     writer = csv.writer(output)
     writer.writerow(['User ID', 'Candidate ID'])
@@ -188,7 +184,7 @@ def export_votes():
 
     output.seek(0)
     return send_file(
-        StringIO(output.read()),
+        BytesIO(output.getvalue().encode('utf-8')),
         mimetype='text/csv',
         as_attachment=True,
         download_name='votes_export.csv'
