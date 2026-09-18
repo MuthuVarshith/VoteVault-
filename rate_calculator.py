@@ -1,5 +1,7 @@
 def calculate_rate(amount, period):
-    return amount / period  # BUG: no zero-division guard
+    if period == 0:
+        return 0.0
+    return amount / period
 
 if __name__ == "__main__":
     print(calculate_rate(100, 0))
