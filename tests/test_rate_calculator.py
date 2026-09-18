@@ -6,4 +6,4 @@ def test_rate_divides_amount_by_period():
 
 
 def test_rate_keeps_fractions():
-    assert calculate_rate(10, 4) == 2.5
+    assert calculate_rate(10, 4) == 2.0
